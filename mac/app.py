@@ -1,49 +1,39 @@
 import logging
-import tkinter as tk
-from tkinter import messagebox
+
+import rumps
 
 from mic_service import MicService
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+ON_ICON = "icons/on.png"
+OFF_ICON = "icons/off.png"
 
-class App:
+
+class StatusBarApp(rumps.App):
     def __init__(self):
-        self.app = tk.Tk()
-        self.app.title("Mic Control")
-        self.app.geometry("200x80")
+        super(StatusBarApp, self).__init__(name="Mic Manager")
+        self.icon = ON_ICON
 
-        self.button_mute = tk.Button(self.app, text="Mute Mic", command=self.mute)
-        self.button_unmute = tk.Button(self.app, text="Unmute Mic", command=self.unmute)
+    @rumps.clicked("Mute")
+    def mute(self, _):
+        logger.info("Muting the mic")
+        MicService.mute_mic()
+        self.icon = OFF_ICON
+        logger.info("Mic muted")
 
-        self.button_mute.pack(pady=5)
-        self.button_unmute.pack(pady=5)
-        logger.info("App is ready")
+    @rumps.clicked("Unmute")
+    def unmute(self, _):
+        logger.info("Unmuting the mic")
+        MicService.unmute_mic()
+        self.icon = ON_ICON
+        logger.info("Mic unmuted")
 
-    def start(self):
-        logger.info("Starting App")
-        self.app.mainloop()
-
-    def mute(self):
-        try:
-            logger.info("Muting the mic")
-            MicService.mute_mic()
-            self.button_mute.config(text="Mic is muted", fg="grey")
-            self.button_unmute.config(text="Unmute Mic", fg="black")
-            logger.info("Mic muted")
-        except Exception as e:
-            messagebox.showerror("Error", f"An error occurred: {e}")
-
-    def unmute(self):
-        try:
-            logger.info("Unmuting the mic")
-            MicService.unmute_mic()
-            self.button_mute.config(text="Mute Mic", fg="black")
-            self.button_unmute.config(text="Mic is unmuted", fg="grey")
-            logger.info("Mic unmuted")
-        except Exception as e:
-            messagebox.showerror("Error", f"An error occurred: {e}")
+    def applicationSupportsSecureRestorableState(self):
+        return "YES"
 
 
-App().start()
+if __name__ == "__main__":
+    app = StatusBarApp()
+    app.run()
