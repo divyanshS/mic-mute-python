@@ -15,7 +15,7 @@ class App:
         self.app.geometry("200x80")
 
         self.button_mute = tk.Button(self.app, text="Mute Mic", command=self.mute)
-        self.button_unmute = tk.Button(self.app, text="Mute Mic", command=self.unmute)
+        self.button_unmute = tk.Button(self.app, text="Unmute Mic", command=self.unmute)
 
         self.button_mute.pack(pady=5)
         self.button_unmute.pack(pady=5)
