@@ -2,7 +2,7 @@ import logging
 import tkinter as tk
 from tkinter import messagebox
 
-from mac.mic_service import MicService
+from mic_service import MicService
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
