@@ -12,6 +12,7 @@ A simple utility to mute mic on MacOS
 #### Build
 - `cd mac`
 - `pip install -r requirements.txt`
+- `pyinstaller --onefile app.py`
 - `python setup.py build`
 - `cd dist`
 - Here, you can use the `app` file as a regular desktop app
