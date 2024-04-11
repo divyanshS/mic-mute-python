@@ -16,3 +16,16 @@ A simple utility to mute mic on MacOS
 - `python setup.py build`
 - `cd dist`
 - Here, you can use the `app` file as a regular desktop app
+
+<hr/>
+
+<p>App Open Page</p>
+<img src='https://github.com/divyanshS/mic-mute-python/blob/main/mac/open.png'/>
+
+
+<p>Mic Muted Page</p>
+<img src='https://github.com/divyanshS/mic-mute-python/blob/main/mac/muted.png'/>
+
+
+<p>Mic Unmuted Page</p>
+<img src='https://github.com/divyanshS/mic-mute-python/blob/main/mac/unmute.png'/>
