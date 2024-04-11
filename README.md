@@ -1,2 +1,4 @@
 # mic-mute-python
-A simple utility to mute mic on Macbook
+A simple python based utility to mute mic
+
+- MacOS Utility

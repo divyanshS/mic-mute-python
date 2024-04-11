@@ -1,0 +1,3 @@
+tkinter
+pyinstaller
+cx_Freeze
