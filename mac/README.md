@@ -20,3 +20,7 @@ A simple utility to mute mic on MacOS
 
 <p>Unmute State Icon</p>
 <img src=https://github.com/divyanshS/mic-mute-python/blob/main/mac/screenshots/state__unmuted.png/>
+
+<hr/>
+
+<p>You can also try out the macOS desktop-app for the same Mic Manager: [Link](https://github.com/divyanshS/mic-mute-python/tree/desktop-app/mac)</p>
