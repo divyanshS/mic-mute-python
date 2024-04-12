@@ -11,6 +11,7 @@ A simple utility to mute mic on MacOS
 - `cd mac`
 - `pip install -r requirements.txt`
 - `python app.py`
+- You can use this to run it in background with minimal effort: `nohup python app.py &`
 
 <hr/>
 
