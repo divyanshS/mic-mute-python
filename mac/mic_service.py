@@ -25,3 +25,16 @@ class MicService:
     def unmute_mic(cls):
         logger.info("Unmuting the mic, setting mic-volume to 100")
         cls._set_mic_volume(100)
+
+    @classmethod
+    def is_mic_muted(cls):
+        try:
+            script = "get volume settings"
+            res = subprocess.run(['osascript', '-e', script], capture_output=True)
+            res = res.stdout.decode()
+            separated = [x.strip() for x in res.split(",")]
+            for x in separated:
+                if x.split(":")[0] == "input volume":
+                    return str(x.split(":")[1]) == "0"
+        except Exception as e:
+            logger.info(f"Error: {e}")

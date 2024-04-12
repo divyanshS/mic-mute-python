@@ -30,6 +30,17 @@ class StatusBarApp(rumps.App):
         self.icon = ON_ICON
         logger.info("Mic unmuted")
 
+    @rumps.timer(3)
+    def checker(self, _):
+        logger.info("Checking mic state")
+        is_muted = MicService.is_mic_muted()
+        if is_muted:
+            if self.icon != OFF_ICON:
+                self.icon = OFF_ICON
+        else:
+            if self.icon != ON_ICON:
+                self.icon = ON_ICON
+
     def applicationSupportsSecureRestorableState(self):
         return "YES"
 
