@@ -13,6 +13,7 @@ A simple utility to mute mic on MacOS
 - `python app.py`
 - You can use this to run it in background with minimal effort: `nohup python app.py &`
 
+<b>🔴🔴This app internally reduces/increases the input sound on mac it has no access to restrict the input. So if any other app wants, it can unmute the input. Hence, you can look at the icon to know if the input is on or off.</b>
 <hr/>
 
 <p>Mute State Icon</p>
